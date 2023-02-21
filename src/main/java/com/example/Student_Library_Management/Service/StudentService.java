@@ -24,4 +24,16 @@ public class StudentService {
 
         return "Student and card added";
     }
+
+    public String findNameByEmail(String email){
+        Student student = studentRepository.findByEmail(email);
+        return student.getName();
+    }
+
+    public String updateMob(Student newStudent){
+        Student originalStudent = studentRepository.findById(newStudent.getId()).get();
+        originalStudent.setMobNo(newStudent.getMobNo());
+        studentRepository.save(originalStudent);
+        return "Student has been Update Successfully";
+    }
 }
