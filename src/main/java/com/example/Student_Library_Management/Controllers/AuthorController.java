@@ -1,5 +1,6 @@
 package com.example.Student_Library_Management.Controllers;
 
+import com.example.Student_Library_Management.DTOs.AuthorEntryDto;
 import com.example.Student_Library_Management.Models.Author;
 import com.example.Student_Library_Management.Service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,8 +19,8 @@ public class AuthorController {
 
 
     @PostMapping("/add")
-    public String addAuthor(@RequestBody Author author){
-      return authorService.createAuthor(author);
+    public String addAuthor(@RequestBody AuthorEntryDto authorEntryDto){
+      return authorService.createAuthor(authorEntryDto);
 
     }
 

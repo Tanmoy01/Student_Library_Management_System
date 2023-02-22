@@ -3,6 +3,8 @@ package com.example.Student_Library_Management.Models;
 import com.example.Student_Library_Management.Enums.Genre;
 import jakarta.persistence.*;
 
+import java.util.*;
+
 @Entity
 @Table(name = "book")
 
@@ -31,6 +33,17 @@ public class Book {
     private Card card;
 
     private boolean issued;
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+    private List<Transactions> listOfTransaction= new ArrayList<>();
+
+    public List<Transactions> getListOfTransaction() {
+        return listOfTransaction;
+    }
+
+    public void setListOfTransaction(List<Transactions> listOfTransaction) {
+        this.listOfTransaction = listOfTransaction;
+    }
 
     public Card getCard() {
         return card;
