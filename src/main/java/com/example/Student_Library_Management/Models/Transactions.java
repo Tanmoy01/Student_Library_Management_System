@@ -17,6 +17,7 @@ public class Transactions {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Enumerated(value = EnumType.STRING)
     private TransactionStatus transactionStatus;
     private int fine;
 
